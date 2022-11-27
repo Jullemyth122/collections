@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Charmonman:wght@400;700&family=El+Messiri&family=Genos:wght@100;300&family=Jacques+Francois&family=Lovers+Quarrel&family=Luckiest+Guy&family=Ma+Shan+Zheng&family=Miss+Fajardose&family=Neuton:wght@200&family=Staatliches&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: black;
+    overflow: hidden;
+}
+
+.enlarge {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Staatliches', cursive;
+    color: red;
+    z-index: 2;
+}
+.parentDiv {
+    overflow: hidden;
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:100%;
+
+}
+
+.stapler {
+    width: 14.28%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+}
+
+.engineering {
+    // padding: 10px;
+    width: 90%;
+    height: 90%;
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+
+@for $i from 1 to 8 {
+    // $c: nth($colors, $i);
+    .stapler#{$i}  {
+        left: $i * 14.28% - 14.28%;
+        // box-shadow:$colors;
+    }
+}
+.stapler1 .engineering {
+    box-shadow: 0px 4px 20px 20px rgba(0, 187, 245, 0.4);
+}
+.stapler2 .engineering {
+    box-shadow: 0px 4px 20px 20px rgba(182, 64, 255, 0.4);
+}
+.stapler3 .engineering {
+    box-shadow: 0px 4px 20px 20px rgba(184, 48, 48, 0.4);
+}
+.stapler4 .engineering {
+    box-shadow: 0px 4px 20px 20px rgba(235, 169, 0, 0.4);
+}
+.stapler5 .engineering {
+    box-shadow: 0px 4px 20px 20px rgba(96, 217, 255, 0.4);
+}
+.stapler6 .engineering {
+    box-shadow: 0px 4px 20px 20px rgba(255, 199, 54, 0.4);
+}
+.stapler7 .engineering {
+    box-shadow: 0px 4px 20px 20px rgba(19, 255, 57, 0.4);
+}

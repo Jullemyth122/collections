@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js" integrity="sha512-v8B8T8l8JiiJRGomPd2k+bPS98RWBLGChFMJbK1hmHiDHYq0EjdQl20LyWeIs+MGRLTWBycJGEGAjKkEtd7w5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js" integrity="sha512-lZACdYsy0W98dOcn+QRNHDxFuhm62lfs8qK5+wPp7X358CN3f+ml49HpnwzTiXFzETs4++fADePDI+L2zwlm7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            /* -webkit-mask-image:url(./violet2.gif);
+            mask-image: url(./violet2.gif);
+            mask-mode: alpha; */
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            position: absolute;
+        }
+        img {
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            /* opacity: 0; */
+            position: absolute;
+        }
+        /* .img2,svg:nth-child(2) circle {
+            opacity: 1;
+        } */
+        .next,.prev {
+            position: absolute;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            z-index: 10;
+            background: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .next {
+            top: 10%;
+            left: 10%;
+        }
+        .prev {
+            top: 10%;
+            right: 10%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <mask id="mask3">
+                    <!-- fill none as orange and you will see another layer of image -->
+                    <circle id="c1" cx="50" cy="0" r="25" stroke-width="8" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+                </mask>
+            </defs>
+            <image mask="url(#mask3)" width="100%" height="100%" xlink:href="./violet2.gif"></image>
+        </svg>
+
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <mask id="mask4">
+                    <!-- fill none as orange and you will see another layer of image -->
+                    <circle id="c1" cx="50" cy="0" r="25" stroke-width="8" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+                </mask>
+            </defs>
+            <image mask="url(#mask4)" width="100%" height="100%" xlink:href="./violet3.gif"></image>
+        </svg>
+
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <mask id="mask5">
+                    <!-- fill none as orange and you will see another layer of image -->
+                    <circle id="c1" cx="50" cy="0" r="25" stroke-width="8" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+                </mask>
+            </defs>
+            <image mask="url(#mask5)" width="100%" height="100%" xlink:href="./violet4.gif"></image>
+        </svg>
+
+
+        <img class="img1" src="./violet2.gif" alt="">
+        <img class="img2" src="./violet3.gif" alt="">
+        <img class="img2" src="./violet4.gif" alt="">
+
+        <div class="next">
+            NEXT 
+        </div>
+        <div class="prev">
+            PREV 
+        </div>
+    </div>
+
+    <script>
+
+        const images = document.querySelectorAll('img')
+        const svgs = document.querySelectorAll('svg')
+        const circles = document.querySelectorAll('#c1')
+
+        // circles.forEach((elem,i) => {
+        //     elem.style.strokeDasharray = `0 100`;
+        //     elem.style.strokeDashoffset = `-50`;
+
+        //     gsap.to(elem,{
+        //         duration:2,
+        //         strokeDasharray:"101 100",
+        //         strokeDashoffset:"0",
+        //         ease:Expo.easeInOut
+        //     })
+        // })
+
+
+        let x = 0
+        let nextItem1 = images
+        let nextItem2 = svgs
+        let nextItem3 = circles
+
+
+        const slides = gsap.utils.toArray("svg");
+        const slidesImage = gsap.utils.toArray("img");
+        const buttonPrev = document.querySelector(".prev");
+        const buttonNext = document.querySelector(".next");
+
+        let totalSlides = slides.length;
+        let currentSlide = 0;
+        const slidesWrap = gsap.utils.wrap(0, totalSlides);
+
+        const transitionInSlide = ({ slide, direction = 1, duration = 1 }) => {
+
+            gsap.fromTo(
+                slides[slide],{
+                    transform:'scale(1.3)',
+                    opacity:1,
+                    // translateX: direction > 0 ? '20px' : '-20px',
+                },
+                {
+                    transform:'scale(1)',
+                    translateX:0,
+                    opacity:0,
+                    xPercent: 0,
+                    duration:duration + 2,
+                    ease:Power2.easeInOut
+                }
+            )
+            gsap.fromTo(
+                circles[slide],{
+                    strokeDasharray:`0 100`,
+                    strokeDashoffset:'0',
+                },{
+                    strokeDasharray:"101 100",
+                    strokeDashoffset:"0",
+                    duration:duration,
+                    ease:Power2.easeInOut
+
+                }
+            )
+
+            gsap.fromTo(
+                slidesImage[slide],{
+                    transform:'scale(1.8)',
+                    translateX: direction > 0 ? '0px' : '0px',
+                    // opacity:0,
+                },
+                {
+                    transform:'scale(1)',
+                    zIndex:1,
+                    opacity:1,
+                    xPercent: 0,
+                    duration
+                }
+            )
+            
+        };
+
+        const transitionOutSlide = ({ slide, direction = 1, duration = 1 }) => {
+
+            gsap.to(slides[slide], {
+                opacity: 0,
+                duration:duration + 3,
+                ease:Power2.easeInOut
+            });
+
+            gsap.fromTo(
+                circles[slide],{
+                    strokeDasharray:`0 100`,
+                    strokeDashoffset:'0',
+                },{
+                    strokeDasharray:"101 100",
+                    strokeDashoffset:"0",
+                    duration:duration + 3,
+                    ease:Power2.easeInOut
+
+                }
+            )
+
+            gsap.to(slidesImage[slide], {
+                translateX: direction > 0 ? '0px' : '0px',
+                // opacity: 1,
+                zIndex:0,
+                duration
+            });
+        };
+
+        const handlePrev = () => {
+            const oldSlide = currentSlide;
+            currentSlide = slidesWrap(currentSlide - 1);
+            transitionInSlide({ slide: currentSlide, direction: -1 });
+            transitionOutSlide({ slide: oldSlide, direction: -1 });
+        };
+
+        const handleNext = () => {
+            const oldSlide = currentSlide;
+            currentSlide = slidesWrap(currentSlide + 1);
+            transitionInSlide({ slide: currentSlide });
+            transitionOutSlide({ slide: oldSlide });
+        };
+
+        slides.forEach((slide, index) => {
+            if (index === currentSlide) {
+                transitionInSlide({ slide: index, duration: 0 });
+                return;
+            }
+            
+            transitionOutSlide({ slide: index, duration: 0 });
+        });
+
+        buttonPrev.addEventListener("click", handlePrev);
+        buttonNext.addEventListener("click", handleNext);
+
+    </script>
+</body>
+</html>

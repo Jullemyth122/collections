@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js" integrity="sha512-v8B8T8l8JiiJRGomPd2k+bPS98RWBLGChFMJbK1hmHiDHYq0EjdQl20LyWeIs+MGRLTWBycJGEGAjKkEtd7w5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js" integrity="sha512-lZACdYsy0W98dOcn+QRNHDxFuhm62lfs8qK5+wPp7X358CN3f+ml49HpnwzTiXFzETs4++fADePDI+L2zwlm7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            /* -webkit-mask-image:url(./violet2.gif);
+            mask-image: url(./violet2.gif);
+            mask-mode: alpha; */
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            /* background: orange; */
+            position: absolute;
+        }
+
+        svg:nth-child(2) {
+            transform: rotate(180deg);
+            width: 80%;
+            height: 80%;
+            /* background: orange; */
+        }
+
+        svg:nth-child(3) {
+            width:100%;height: 100%;
+            /* background: orange; */
+        }
+
+        img {
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <svg xmlns="http//www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs height="100%">
+                <mask id="mask">
+                    <circle id="c1" cx="25" cy="25" r="10" stroke-width="0.5" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+                </mask>
+            </defs>
+            <image mask="url(#mask)" width="100%" height="100%" xlink:href="./violet2.gif"></image>
+        </svg>
+
+        <svg xmlns="http//www.w3.org/2000/svg" viewBox="0 0 50 50">
+            <defs>
+                <mask id="mask2">
+                    <circle id="c1" cx="25" cy="25" r="10" stroke-width="0.5" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+                </mask>
+            </defs>
+            <image mask="url(#mask2)" width="100%" height="100%" xlink:href="./violet2.gif"></image>
+        </svg>
+
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <mask id="mask3">
+                    <!-- fill none as orange and you will see another layer of image -->
+                    <circle id="c1" cx="50" cy="0" r="25" stroke-width="0.5" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+                </mask>
+            </defs>
+            <image mask="url(#mask3)" width="100%" height="100%" xlink:href="./violet2.gif"></image>
+        </svg>
+
+        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <mask id="mask4">
+                    <circle id="c1" cx="50" cy="0" r="5" stroke-width="1" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+                </mask>
+            </defs>
+            <image mask="url(#mask4)" width="100%" height="100%" xlink:href="./violet2.gif"></image>
+        </svg>
+
+        <svg viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <mask id="mask5">
+                    <circle id="c1" cx="75" cy="-25" r="40" stroke-width="1" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+                </mask>
+            </defs>
+            <image mask="url(#mask5)" width="100%" height="100%" xlink:href="./violet2.gif"></image>
+        </svg>
+
+                    
+        <img src="./violet2.gif" alt="">
+    </div>
+
+    <script>
+        const svgs = document.querySelectorAll('#c1')
+        svgs.forEach((elem,i) => {
+            elem.style.strokeDasharray = `0 100`;
+            elem.style.strokeDashoffset = `-50`;
+
+            gsap.to(elem,{
+                duration:2,
+                strokeDasharray:"101 100",
+    //           Here I want to make the circle dash offset bot sides of the circle side not only in the right side of dash offset
+                strokeDashoffset:"0",
+                ease:Expo.easeInOut
+            })
+        })
+    </script>
+</body>
+</html>

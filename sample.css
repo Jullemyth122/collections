@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.d-flex {
+  gap: 50px;
+  padding: 10px;
+}
+
+.items {
+  width: 320px;
+  height: 550px;
+  background: red;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.card {
+  height: 100%;
+  border: 0px;
+  border-radius: 0;
+}
+
+.show {
+  background: orange;
+  height: 100%;
+}
+
+.initial {
+  height: 100vh;
+}
+
+.start {
+  background: green;
+  height: 100%;
+}
+
+.start .low {
+  height: 50%;
+}
+
+.item__initial {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 5px;
+  height: 100%;
+}
+
+.item_init_1 {
+  height: 400px;
+  padding: 5px;
+  width: 24%;
+  background-color: orange;
+}
+
+@media (max-width: 600px) {
+  .item_init_1 {
+    width: 45%;
+  }
+}
+
+.try {
+  height: 500px;
+}
+
+.top-banner {
+  display: -ms-grid;
+  display: grid;
+}
+
+.top-banner .d-flex {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: 50%;
+  gap: 2px;
+}
+
+.top-banner .d-flex .box {
+  width: 5vw;
+  height: 5vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 1.2vw;
+  background: orange;
+}
+
+.top-banner .group-parent {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-columns: auto auto;
+      grid-template-columns: auto auto;
+  gap: 10px;
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .top-banner .group-parent {
+    -ms-grid-columns: auto;
+        grid-template-columns: auto;
+  }
+}
+
+.top-banner .group-parent .card {
+  padding: 10px;
+}
+
+.top-banner .group-parent .item-group {
+  width: 100%;
+  height: 400px;
+  background: black;
+}
+/*# sourceMappingURL=sample.css.map */

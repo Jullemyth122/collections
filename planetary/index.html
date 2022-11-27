@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js" integrity="sha512-v8B8T8l8JiiJRGomPd2k+bPS98RWBLGChFMJbK1hmHiDHYq0EjdQl20LyWeIs+MGRLTWBycJGEGAjKkEtd7w5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js" integrity="sha512-lZACdYsy0W98dOcn+QRNHDxFuhm62lfs8qK5+wPp7X358CN3f+ml49HpnwzTiXFzETs4++fADePDI+L2zwlm7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/CSSRulePlugin.min.js" integrity="sha512-oYnRsy+bFXYr+btXcKk2dpzfERnCUc5G4GkJ0AO/XSvomLV7Xc7tZVhTsYIz9QzOAw9qo/6qoA6JTpzaYuHUGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&family=Bebas+Neue&family=Charmonman:wght@400;700&family=El+Messiri&family=Genos:wght@100;300&family=Jacques+Francois&family=Lovers+Quarrel&family=Luckiest+Guy&family=Ma+Shan+Zheng&family=Miss+Fajardose&family=Neuton:wght@200&family=Staatliches&display=swap');
+
+.first {
+    width: 100%;
+    background: #000;
+    height: 100vh;
+    font-family: 'Bebas Neue', cursive;
+    color: #fff;
+}
+.row {
+    height: 100%;
+}
+@media (max-width:767px) {
+    .layer {
+        display: grid;
+        grid-template-rows: 30% 70%;
+    }
+}
+.gridItems {
+    display: grid;
+    grid-template-rows: 20% 10% 50% 20%;
+    height: 100%;
+    position: relative;
+}
+.gridItems::after {
+    width: 2px;
+    height: var(--height-increase);
+    position: absolute;
+    content: '';
+    right: 0;
+    top: 0;
+    background: #fff;
+}
+@media (max-width:767px) {
+    .gridItems::after {
+        width: var(--width-increase);
+        height: 2px;
+        right: 0;
+        top: 90%;
+    }
+}
+.gridItems::before {
+    width: 2px;
+    height: var(--height-increase);
+    position: absolute;
+    content: '';
+    right: 10px;
+    bottom: 0;
+    background: #fff;
+}
+
+@media (max-width:767px) {
+    .gridItems::before {
+        width: var(--width-increase);
+        height: 2px;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+.title {
+    grid-row: 2/2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+h1 {
+    position: relative;
+}
+svg {
+    left: -0%;
+    width: 0%;
+    height: 100%;
+    position: absolute;
+}
+
+.item {
+    cursor: pointer;
+    /* background: orange; */
+}
+.options {
+    grid-row: 3/3;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+@media (max-width:767px) {
+    .options {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        /* grid-template-columns: repeat(5,auto); */
+        gap: 15px;
+    }
+}
+.main {
+    display: grid;
+    position: relative;
+    /* background: orange; */
+    grid-template-rows: 70% 30%;
+}
+h4 {
+    position: relative;
+    text-align: center;
+}
+.mainText {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-family: 'Baloo Paaji 2', cursive;
+}
+.mainImage {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.childImages {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.absolute-item {
+    top: 97%;
+    left: 5%;
+    position: absolute;
+    font-family: 'Bebas Neue', cursive;
+    z-index: 5;
+    /* background: orange; */
+}
+.lines {
+    z-index: 5;
+    width: 0%;
+    height: 25px;
+    background: #fff;
+    position: absolute;
+    top: 97%;
+    right: 5%;
+}
+.mean-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.mean-item h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* background: orange; */
+}
+.mean-i {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.right {
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid white;
+    border-right: 2px solid white;
+    position: absolute;
+    top: 0;
+    /* right: 20%; */
+}
+.right-bot {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    /* right: 20%; */
+    top: calc(100% - 12px);
+}
+.left {
+    width: 12px;
+    height: 12px;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    position: absolute;
+    top: 0;
+    /* left: 20%; */
+}
+.left-bot {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-bottom: 2px solid white;
+    border-left: 2px solid white;
+    /* left: 20%; */
+    top: calc(100% - 12px);
+}
+
+.outside {
+    z-index: 0;
+    object-fit: cover;
+    transform: scale(1);
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    --size-i: 0%;
+    --linear-mask: linear-gradient(to bottom, #fffd73 10%,transparent var(--y));
+    --mask: radial-gradient(circle at var(--x, 50%) var(--y, 50%), #fffd73 var(--size-i), transparent 0);
+     -webkit-mask-image: var(--mask);
+    mask-image: var(--mask);
+}
+.outside:nth-child(1) {
+    z-index: 2;
+    --size-i:100%;
+}
+.textHide {
+    overflow: hidden;
+    position: relative;
+    /* background: orange; */
+}
+.textHide .hide {
+    transform: translateY(100%);
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="first container-fluid">
+        <div class="layer row row-cols-md-2">
+            <div class="col-md-3">
+                <div class="gridItems">
+                    <div class="title"> 
+                        <h1>
+                            Science
+                        </h1> 
+                    </div>
+                    <div class="options">
+                        <div class="item" data-title="Dark Matter" data-first="Opposite of Light" data-second="Small Vacuum">
+                            <h4>
+                            <svg class="active" width="100" height="18" viewBox="0 0 210 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.95792 15.9999C3.5397 15.9766 -0.0231221 12.3761 0.000131648 7.9579C0.0233854 3.53968 3.62391 -0.0231413 8.04213 0.000112493C11.9477 0.0206679 15.1848 2.83645 15.8674 6.54139L194.148 7.47971C194.87 3.78216 198.136 1.00061 202.042 1.02116C206.46 1.04442 210.023 4.64494 210 9.06316C209.977 13.4814 206.376 17.0442 201.958 17.0209C198.052 17.0004 194.815 14.1846 194.133 10.4797L15.8516 9.54135C15.13 13.2389 11.8634 16.0204 7.95792 15.9999Z" fill="white" style="mix-blend-mode:difference"/>
+                            </svg>
+                            <div class="textHide">
+                                <div class="hide">
+                                    Dark Matter
+                                </div>
+                            </div>
+                            </h4>
+                        </div>
+                        <div class="item" data-title="Black Hole" data-first="Anti-Gravity" data-second="Heavenly Body">
+                            <h4>
+                            <svg width="100" height="18" viewBox="0 0 210 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.95792 15.9999C3.5397 15.9766 -0.0231221 12.3761 0.000131648 7.9579C0.0233854 3.53968 3.62391 -0.0231413 8.04213 0.000112493C11.9477 0.0206679 15.1848 2.83645 15.8674 6.54139L194.148 7.47971C194.87 3.78216 198.136 1.00061 202.042 1.02116C206.46 1.04442 210.023 4.64494 210 9.06316C209.977 13.4814 206.376 17.0442 201.958 17.0209C198.052 17.0004 194.815 14.1846 194.133 10.4797L15.8516 9.54135C15.13 13.2389 11.8634 16.0204 7.95792 15.9999Z" fill="white" style="mix-blend-mode:difference"/>
+                            </svg>
+                            <div class="textHide">
+                                <div class="hide">
+                                    Black Hole
+                                </div>
+                            </div>
+                            </h4>
+                        </div>
+                        <div class="item" data-title="Gravity" data-first="Blending Space" data-second="Planet Field">
+                            <h4>
+                            <svg width="100" height="18" viewBox="0 0 210 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.95792 15.9999C3.5397 15.9766 -0.0231221 12.3761 0.000131648 7.9579C0.0233854 3.53968 3.62391 -0.0231413 8.04213 0.000112493C11.9477 0.0206679 15.1848 2.83645 15.8674 6.54139L194.148 7.47971C194.87 3.78216 198.136 1.00061 202.042 1.02116C206.46 1.04442 210.023 4.64494 210 9.06316C209.977 13.4814 206.376 17.0442 201.958 17.0209C198.052 17.0004 194.815 14.1846 194.133 10.4797L15.8516 9.54135C15.13 13.2389 11.8634 16.0204 7.95792 15.9999Z" fill="white" style="mix-blend-mode:difference"/>
+                            </svg>
+                            <div class="textHide">
+                                <div class="hide">
+                                    Gravity
+                                </div>
+                            </div>
+                            </h4>
+                        </div>
+                        <div class="item" data-title="Super Nova" data-first="Stars" data-second="Death of Stars">
+                            <h4>
+                            <svg width="100" height="18" viewBox="0 0 210 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.95792 15.9999C3.5397 15.9766 -0.0231221 12.3761 0.000131648 7.9579C0.0233854 3.53968 3.62391 -0.0231413 8.04213 0.000112493C11.9477 0.0206679 15.1848 2.83645 15.8674 6.54139L194.148 7.47971C194.87 3.78216 198.136 1.00061 202.042 1.02116C206.46 1.04442 210.023 4.64494 210 9.06316C209.977 13.4814 206.376 17.0442 201.958 17.0209C198.052 17.0004 194.815 14.1846 194.133 10.4797L15.8516 9.54135C15.13 13.2389 11.8634 16.0204 7.95792 15.9999Z" fill="white" style="mix-blend-mode:difference"/>
+                            </svg>
+                            <div class="textHide">
+                                <div class="hide">
+                                    Super Nova
+                                </div>
+                            </div>
+                            </h4>
+                        </div>
+                        <div class="item" data-title="Cosmic Radiation" data-first="Stars Radiation" data-second="Stars Radiation">
+                            <h4>
+                            <svg width="100" height="18" viewBox="0 0 210 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M7.95792 15.9999C3.5397 15.9766 -0.0231221 12.3761 0.000131648 7.9579C0.0233854 3.53968 3.62391 -0.0231413 8.04213 0.000112493C11.9477 0.0206679 15.1848 2.83645 15.8674 6.54139L194.148 7.47971C194.87 3.78216 198.136 1.00061 202.042 1.02116C206.46 1.04442 210.023 4.64494 210 9.06316C209.977 13.4814 206.376 17.0442 201.958 17.0209C198.052 17.0004 194.815 14.1846 194.133 10.4797L15.8516 9.54135C15.13 13.2389 11.8634 16.0204 7.95792 15.9999Z" fill="white" style="mix-blend-mode:difference"/>
+                            </svg>
+                            <div class="textHide">
+                                <div class="hide">
+                                    Cosmic Radiation
+                                </div>
+                            </div>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main col-md-9">
+                <div class="mainImage">
+                    <div class="childImages">
+                        <img class="outside" src="./plimg/dark.png" alt="">
+                        <img class="outside" src="./plimg/black.png" alt="">
+                        <img class="outside" src="./plimg/grav.png" alt="">
+                        <img class="outside" src="./plimg/nova.png" alt="">
+                        <img class="outside" src="./plimg/cosmic.png" alt="">
+                    </div>
+                    <div class="absolute-item">
+                        <h3>
+                            Dark Matter
+                        </h3>
+                    </div>
+                    <div class="lines"></div>
+                </div>
+                <div class="mainText">
+                    <div class="row w-100 align-items-center justify-content-center d-flex">
+                        <div class="col-md-6 mean-item text-center"> 
+                            <h3>
+                                <div class="mean-i">
+                                    Opposite of Light 
+                                </div>
+                                <span class="r right"></span><span class="l left"></span><span class="r right-bot"></span><span class="l left-bot"></span>
+                            </h3>
+                        </div>
+                        <div class="col-md-6 mean-item text-center"> 
+                            <h3>
+                                <div class="mean-i">
+                                    Small Vacuums 
+                                </div>
+                                <span class="r right"></span><span class="l left"></span><span class="r right-bot"></span><span class="l left-bot"></span>
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const slidesImage = gsap.utils.toArray(".outside");
+        const meanItem = gsap.utils.toArray(".mean-i");
+        const lineGrids = gsap.utils.toArray(".gridItems")
+        const sideBars = gsap.utils.toArray(".textHide .hide")
+
+        // const sideTimeline = gsap.timeline()
+        gsap.to(sideBars,{
+            y:"0%",
+            stagger:{
+                eachEase:"expo.out",
+                each:0.2,
+                from:"center"
+            }
+        })
+
+
+        const mq = window.matchMedia("(max-width:767px)")
+
+        function LINES() {
+            if (mq.matches) {
+                lineGrids.forEach((elem,i) => {
+                    gsap.to(elem,{
+                        "--width-increase":"80%",
+                        ease:"expo.inOut",
+                        duration:2,
+                    })
+                })
+            } else {
+                lineGrids.forEach((elem,i) => {
+                    gsap.to(elem,{
+                        "--height-increase":"80%",
+                        ease:"expo.inOut",
+                        duration:2,
+                    })
+                })
+            }
+        }
+        LINES()
+        window.addEventListener("resize",() => {
+            LINES()
+        })
+
+        let activeElem;
+        let currentSlide = 0;
+
+        const items = gsap.utils.toArray(".item")
+
+        const transitionInSlide = ({ slide, direction = 2, duration = 2 }) => {
+
+            gsap.fromTo(
+                slidesImage[slide],{
+                    transform:'scale(1.8)',
+                    "--size-i":"0%",
+                },
+                {
+                    "--size-i":"100%",
+                    transform:'scale(1)',
+                    zIndex:1,
+                    overwrite:true,
+                    duration
+                }
+            )
+        };
+
+        const transitionOutSlide = ({ slide, direction = 1, duration = 2 }) => {
+            gsap.to(slidesImage[slide], {
+                "--size-i":"0%",
+                translateX: direction > 0 ? '0px' : '0px',
+                // opacity: 1,
+                overwrite:true,
+                zIndex:0,
+                duration
+            });
+
+        };
+
+        gsap.fromTo('.r',{
+            right:"50%"
+        },{ 
+            right:"-10%",
+            ease:"expo.inOut",
+            duration:2,
+            overwrite:true,
+                    // paused:true,
+        })
+        gsap.fromTo('.l',{
+            left:"50%"
+        },{ 
+            left:"-10%",
+            ease:"expo.inOut",
+            duration:2,
+            overwrite:true,
+                    // paused:true,
+        })
+        
+        gsap.fromTo('.lines',{
+            width:"0%",
+        },{ 
+            width: "50%",
+            ease:"expo.inOut",
+            duration:2,
+            overwrite:true,
+        })
+
+        gsap.fromTo('.mean-i',{
+            width:"0%",
+        },{ 
+            width: "100%",
+            ease:"expo.inOut",
+            duration:2,
+            overwrite:true,
+        })
+
+        // transitionInSlide({ slide: currentSlide});
+
+        items.forEach((elem,i) => {
+
+            elem.anim = gsap.to(elem.children[0].children[0],{
+                width: '150%',
+                left: '-25%',
+                display: 'block',
+                paused:true,
+            })
+
+            elem.addEventListener("click",() => {
+
+                const oldSlide = currentSlide;
+                currentSlide = i
+                transitionOutSlide({ slide: oldSlide});
+                transitionInSlide({ slide: currentSlide});
+                if (activeElem) {
+                    activeElem.anim.reverse()
+                }
+                document.querySelector('.absolute-item').children[0].innerHTML = elem.dataset.title
+                meanItem[0].innerHTML = elem.dataset.first
+                meanItem[1].innerHTML = elem.dataset.second
+
+                activeElem = elem;
+                elem.anim.play()
+
+                gsap.fromTo('.r',{
+                    right:"50%"
+                },{ 
+                    right:"-10%",
+                    ease:"expo.inOut",
+                    duration:2,
+                    overwrite:true,
+                    // paused:true,
+                })
+
+                gsap.fromTo('.l',{
+                    left:"50%"
+                },{ 
+                    left:"-10%",
+                    ease:"expo.inOut",
+                    duration:2,
+                    overwrite:true,
+                    // paused:true,
+                })
+
+                gsap.fromTo('.lines',{
+                    width:"0%",
+                },{ 
+                    width: "50%",
+                    ease:"expo.inOut",
+                    duration:2,
+                    overwrite:true,
+                })
+
+                gsap.fromTo('.mean-i',{
+                    width:"0%",
+                },{ 
+                    width: "100%",
+                    ease:"expo.inOut",
+                    duration:2,
+                    overwrite:true,
+                })
+            })
+        })
+
+    </script>
+    
+</body>
+</html>

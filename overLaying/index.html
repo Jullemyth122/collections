@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js" integrity="sha512-v8B8T8l8JiiJRGomPd2k+bPS98RWBLGChFMJbK1hmHiDHYq0EjdQl20LyWeIs+MGRLTWBycJGEGAjKkEtd7w5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <main id="container">
+    <div class="sample row row-cols-2">
+        <div class="col d-flex align-items-center justify-content-center  h-100">
+            <div class="absolute-number">
+                <svg viewBox="0 0 304 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="100" y="25" text-anchor="middle"
+                    dominant-baseline="middle"
+                    fill="white">
+                    01
+                    </text>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M203.772 0.214084L303.672 0.640906L303.651 5.64086L206.537 5.22594L174.71 56.1815L0.803784 55.4385L0.825146 50.4386L171.945 51.1697L203.772 0.214084Z" fill="white"/>
+                </svg>
+            </div>
+            <div class="circles-out">
+                <div class="circle-in">
+                    <div class="dot"></div>
+                    <div class="line"></div>
+                    GREEN
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="target">
+        <div class="sample row row-cols-2">
+            <div class="col d-flex align-items-center justify-content-center  h-100">
+                <div class="absolute-number">
+                    <svg viewBox="0 0 304 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="100" y="25" text-anchor="middle"
+                    dominant-baseline="middle"
+                    fill="white">
+                    02
+                    </text>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M203.772 0.214084L303.672 0.640906L303.651 5.64086L206.537 5.22594L174.71 56.1815L0.803784 55.4385L0.825146 50.4386L171.945 51.1697L203.772 0.214084Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="circles-out">
+                    <div class="circle-in">
+                        <div class="dot"></div>
+                        <div class="line"></div>
+                        BLUE
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <div class="target">
+        <div class="sample row row-cols-2">
+            <div class="col d-flex align-items-center justify-content-center  h-100">
+                <div class="absolute-number">
+                    <svg viewBox="0 0 304 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="100" y="25" text-anchor="middle"
+                    dominant-baseline="middle"
+                    fill="white">
+                    03
+                    </text>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M203.772 0.214084L303.672 0.640906L303.651 5.64086L206.537 5.22594L174.71 56.1815L0.803784 55.4385L0.825146 50.4386L171.945 51.1697L203.772 0.214084Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="circles-out">
+                    <div class="circle-in">
+                        <div class="dot"></div>
+                        <div class="line"></div>
+                        RED
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <div class="target">
+        <div class="sample row row-cols-2">
+            <div class="col d-flex align-items-center justify-content-center  h-100">
+                <div class="absolute-number">
+                    <svg viewBox="0 0 304 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="100" y="25" text-anchor="middle"
+                    dominant-baseline="middle"
+                    fill="white">
+                    04
+                    </text>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M203.772 0.214084L303.672 0.640906L303.651 5.64086L206.537 5.22594L174.71 56.1815L0.803784 55.4385L0.825146 50.4386L171.945 51.1697L203.772 0.214084Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="circles-out">
+                    <div class="circle-in">
+                        <div class="dot"></div>
+                        <div class="line"></div>
+                        YELLOW
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    <div class="target">
+        <div class="sample row row-cols-2">
+            <div class="col d-flex align-items-center justify-content-center  h-100">
+                <div class="absolute-number">
+                    <svg viewBox="0 0 304 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <text x="100" y="25" text-anchor="middle"
+                    dominant-baseline="middle"
+                    fill="white">
+                    05
+                    </text>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M203.772 0.214084L303.672 0.640906L303.651 5.64086L206.537 5.22594L174.71 56.1815L0.803784 55.4385L0.825146 50.4386L171.945 51.1697L203.772 0.214084Z" fill="white"/>
+                    </svg>
+                </div>
+                <div class="circles-out">
+                    <div class="circle-in">
+                        <div class="dot"></div>
+                        <div class="line"></div>
+                        PURPLE
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </div>
+    </main>
+    <!-- <div class="spacer">
+        BOBO
+    </div> -->
+
+    <script>
+        // console.clear();
+        // gsap.config({ trialWarn: false });
+        gsap.registerPlugin(ScrollTrigger);
+        const main = document.querySelector('main')
+        const tl1 = gsap
+        .timeline({
+            scrollTrigger: {
+                trigger: "#container",
+                start: "top top",
+                end:() => `+=${main.clientHeight * 3}px`,
+                pin: true,
+                scrub: 2
+            }
+        })
+
+        tl1.to(".target", {
+            "clip-path": "polygon(-100% 0%, 100% 0%, 100% 100%, -25% 100%)",
+            ease: "none",
+            stagger: 1
+        });
+        
+
+    </script>
+    
+</body>
+</html>

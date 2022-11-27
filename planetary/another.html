@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.parent {
+  display:grid;
+  grid-template-columns:repeat(7,auto);
+  gap: 10px;
+}
+.NewItem {
+    background-color: orange;
+}
+    </style>
+</head>
+<body>
+    <div class="parent"></div>
+    
+    <script>
+    const parentDiv = document.querySelector('.parent')
+
+
+    
+        for(let i=0;i < 50; i++) {
+            const elementCreated = document.createElement('div')
+            elementCreated.style.width = "150px"
+            elementCreated.style.height = "150px"
+            elementCreated.setAttribute("class","NewItem")
+            parentDiv.appendChild(elementCreated)  
+        }
+    </script>
+</body>
+</html>

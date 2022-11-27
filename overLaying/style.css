@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2&family=Bebas+Neue&family=Charmonman:wght@400;700&family=Chivo:wght@300&family=El+Messiri&family=Genos:wght@100;300&family=Jacques+Francois&family=Lovers+Quarrel&family=Luckiest+Guy&family=Ma+Shan+Zheng&family=Miss+Fajardose&family=Neuton:wght@200&family=Orbitron&family=Staatliches&display=swap");
+/* HERE IS THE CSS I PUT IT IN THE FIRRST YOU DON"T HAVE TO SCROLLDOWN */
+.text h1 {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(110.25deg, #FFFFFF 34.09%, #000000 46.66%, #FF792E 54.27%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+body {
+  font-family: "proxima-nova", sans-serif;
+  padding: 0;
+  margin: 0;
+  background: black;
+}
+
+#container {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  background: #244800;
+  background-size: cover;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.spacer {
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+  background: black;
+}
+
+.spacer::before {
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.target {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  -webkit-clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 150% 100%);
+          clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 150% 100%);
+  background: #001D48;
+  background-size: cover;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.absolute-number {
+  width: 20%;
+  height: 100px;
+  position: absolute;
+  left: 10%;
+}
+
+.absolute-number svg {
+  width: 100%;
+  height: 100%;
+}
+
+.absolute-number text {
+  font-size: 40px;
+}
+
+.col {
+  width: 100%;
+  height: 100%;
+}
+
+.circles-out {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50vw;
+  height: 50vw;
+  position: relative;
+  border-radius: 50%;
+  opacity: 0.8;
+  background: radial-gradient(118.83% 118.83% at -18.83% 2.67%, rgba(104, 186, 65, 0.5) 33.33%, rgba(70, 128, 44, 0.5) 46.35%, rgba(0, 0, 0, 0.5) 85.94%);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.circles-out .circle-in {
+  z-index: 1;
+  position: absolute;
+  width: 30vw;
+  height: 30vw;
+  opacity: 0.8;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 50%;
+  font-size: 3.5vw;
+  color: #fff;
+  background: radial-gradient(118.83% 118.83% at -18.83% 2.67%, rgba(126, 199, 92, 0.8) 33.33%, rgba(70, 128, 44, 0.8) 46.35%, rgba(0, 0, 0, 0.8) 85.94%);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.circles-out .dot {
+  width: 10%;
+  height: 10%;
+  background: #fff;
+  position: absolute;
+  border-radius: 50%;
+  left: 10%;
+}
+
+.circles-out .line {
+  width: 15%;
+  height: 3px;
+  right: 2%;
+  background: #fff;
+  position: absolute;
+}
+
+.target:nth-child(2) .circles-out {
+  background: radial-gradient(118.83% 118.83% at -18.83% 2.67%, rgba(65, 113, 186, 0.5) 33.33%, rgba(44, 57, 128, 0.5) 46.35%, rgba(0, 0, 0, 0.5) 85.94%);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.target:nth-child(2) .circles-out .circle-in {
+  background: radial-gradient(118.83% 118.83% at -18.83% 2.67%, rgba(92, 160, 199, 0.8) 33.33%, rgba(44, 82, 128, 0.8) 46.35%, rgba(0, 0, 0, 0.8) 85.94%);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.target:nth-child(3) {
+  background: #480000;
+}
+
+.target:nth-child(3) .circles-out {
+  background: radial-gradient(118.83% 118.83% at -18.83% 2.67%, rgba(186, 65, 65, 0.5) 33.33%, rgba(128, 44, 44, 0.5) 46.35%, rgba(0, 0, 0, 0.5) 85.94%);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.target:nth-child(3) .circles-out .circle-in {
+  background: radial-gradient(118.83% 118.83% at -18.83% 2.67%, rgba(199, 92, 92, 0.8) 33.33%, rgba(128, 44, 44, 0.8) 46.35%, rgba(0, 0, 0, 0.8) 85.94%);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.target:nth-child(4) {
+  background: #474800;
+}
+
+.target:nth-child(4) .circles-out {
+  background: radial-gradient(118.83% 118.83% at -18.83% 2.67%, rgba(186, 181, 65, 0.5) 33.33%, rgba(128, 109, 44, 0.5) 46.35%, rgba(0, 0, 0, 0.5) 85.94%);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.target:nth-child(4) .circles-out .circle-in {
+  background: radial-gradient(118.83% 118.83% at -18.83% 2.67%, rgba(197, 199, 92, 0.8) 33.33%, rgba(126, 128, 44, 0.8) 46.35%, rgba(0, 0, 0, 0.8) 85.94%);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.target:nth-child(5) {
+  background: #3E0048;
+}
+
+.target:nth-child(5) .circles-out {
+  background: radial-gradient(118.83% 118.83% at -18.83% 2.67%, rgba(184, 65, 186, 0.5) 33.33%, rgba(128, 44, 119, 0.5) 46.35%, rgba(0, 0, 0, 0.5) 85.94%);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.target:nth-child(5) .circles-out .circle-in {
+  background: radial-gradient(118.83% 118.83% at -18.83% 2.67%, rgba(197, 92, 199, 0.8) 33.33%, rgba(128, 44, 119, 0.8) 46.35%, rgba(0, 0, 0, 0.8) 85.94%);
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+/*# sourceMappingURL=style.css.map */

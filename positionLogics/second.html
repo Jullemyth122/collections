@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js" integrity="sha512-v8B8T8l8JiiJRGomPd2k+bPS98RWBLGChFMJbK1hmHiDHYq0EjdQl20LyWeIs+MGRLTWBycJGEGAjKkEtd7w5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js" integrity="sha512-lZACdYsy0W98dOcn+QRNHDxFuhm62lfs8qK5+wPp7X358CN3f+ml49HpnwzTiXFzETs4++fADePDI+L2zwlm7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/CSSRulePlugin.min.js" integrity="sha512-oYnRsy+bFXYr+btXcKk2dpzfERnCUc5G4GkJ0AO/XSvomLV7Xc7tZVhTsYIz9QzOAw9qo/6qoA6JTpzaYuHUGg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+
+    <div class="enlarge">
+
+        <h1> 
+            NETFLIX MOVIES
+        </h1>
+
+    </div>
+
+    <!-- they must be inside the parent div -->
+    <!-- so I can make them into slider. -->
+    <div class="parentDiv">
+        <div class="stapler stapler1">
+            <div class="engineering">
+                <img src="./images/m1.png" alt="">
+            </div>
+        </div>
+        <div class="stapler stapler2">
+            <div class="engineering">
+                <img src="./images/m2.png" alt="">
+            </div>
+        </div>
+        <div class="stapler stapler3">
+            <div class="engineering">
+                <img src="./images/m3.png" alt="">
+            </div>
+        </div>
+        <div class="stapler stapler4">
+            <div class="engineering">
+                <img src="./images/m4.png" alt="">
+            </div>
+        </div>
+        <div class="stapler stapler5">
+            <div class="engineering">
+                <img src="./images/m5.png" alt="">
+            </div>
+        </div>
+        <div class="stapler stapler6">
+            <div class="engineering">
+                <img src="./images/m6.jpg" alt="">
+            </div>
+        </div>
+        <div class="stapler stapler7">
+            <div class="engineering">
+                <img src="./images/m7.png" alt="">
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        const staplers = gsap.utils.toArray('.stapler');
+
+        let activeElem;
+
+        staplers.forEach((elem, i) => {
+            elem.anim = gsap.to(elem, {
+                x: `${-14.28 * i}%`,
+                y: "-45%",
+                width: "100%",
+                height: "70%",
+                ease: "expo.inOut",
+                duration: 2,
+                zIndex: 10,
+                paused: true
+            });
+
+        elem.anim2 = gsap.to(elem.children[0],{
+            "boxShadow":"0px 0px 3px white",
+            ease: "expo.inOut",
+            duration: 2,
+            paused: true
+
+        })
+
+        elem.addEventListener("click", () => {
+            if (activeElem) {
+            activeElem.anim.reverse();
+            activeElem.anim2.reverse();
+            }
+            activeElem = elem;
+            elem.anim.play();
+            elem.anim2.play()
+        })
+        })
+    </script>
+</body>
+</html>

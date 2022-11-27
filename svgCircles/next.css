@@ -1,0 +1,34 @@
+#slider {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.slide:nth-child(1) {
+  background-color: #51c151;
+}
+
+.slide:nth-child(2) {
+  background-color: #e95d5d;
+}
+
+.slide:nth-child(3) {
+  background-color: #44c7e5;
+}
+
+.slide img {
+  position: absolute;
+  width: 100%;
+}
+
+button {
+  margin: 20px;
+}
+/*# sourceMappingURL=next.css.map */

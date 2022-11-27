@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js" integrity="sha512-v8B8T8l8JiiJRGomPd2k+bPS98RWBLGChFMJbK1hmHiDHYq0EjdQl20LyWeIs+MGRLTWBycJGEGAjKkEtd7w5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js" integrity="sha512-lZACdYsy0W98dOcn+QRNHDxFuhm62lfs8qK5+wPp7X358CN3f+ml49HpnwzTiXFzETs4++fADePDI+L2zwlm7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+        circle#c1 {
+        stroke-dasharray: 0 100;
+        stroke-dashoffset: -50;
+        stroke-linecap: round;
+        }
+
+        .main-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="main-container">
+        <div class="container">
+            <svg width="200" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <circle id="c1" cx="25" cy="25" r="24" stroke-width="0.5" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+            </svg>
+            <svg width="200" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <circle id="c1" cx="25" cy="25" r="24" stroke-width="0.5" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+            </svg>
+            <svg width="200" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <circle id="c1" cx="25" cy="25" r="24" stroke-width="0.5" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+            </svg>
+            <svg width="200" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <circle id="c1" cx="25" cy="25" r="24" stroke-width="0.5" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+            </svg>
+            <svg width="200" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 50 50">
+                <circle id="c1" cx="25" cy="25" r="24" stroke-width="0.5" stroke="orange" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+            </svg>
+        </div>
+    </div>
+    
+    <script>
+
+        const containers = document.querySelector('.container')
+
+        var circle = document.querySelectorAll('#c1');
+
+        
+        circle.forEach((elem,i) => {
+            var radius = elem.r.baseVal.value;
+            var circumference = radius * 2 * Math.PI;
+    
+            if (i == 0) {
+                elem.style.strokeDasharray = `0 100`;
+                elem.style.strokeDashoffset = `-50`;
+            } else if (i == 1) {
+                elem.style.strokeDasharray = `0 100`;
+                elem.style.strokeDashoffset = `50`;
+            } 
+        //     else if (i == 2 ) {
+        //         elem.style.strokeDasharray = `5 25 5 25 5`;
+        //         elem.style.strokeDashoffset = `25`;
+        //         gsap.to(elem,{
+        //             duration:3,
+        //             strokeDasharray:"101 100",
+        // //           Here I want to make the circle dash offset bot sides of the circle side not only in the right side of dash offset
+        //             strokeDashoffset:"0",
+        //             ease:Expo.easeInOut
+        //         })
+        //     } else if (i == 3 ) {
+        //         elem.style.strokeDasharray = `0 50 100`;
+        //         elem.style.strokeDashoffset = `-50`;
+        //         gsap.to(elem,{
+        //             duration:3,
+        //             strokeDasharray:"51 0 50",
+        // //           Here I want to make the circle dash offset bot sides of the circle side not only in the right side of dash offset
+        //             strokeDashoffset:"0",
+        //             ease:Expo.easeInOut
+        //         })
+        //     } else if ( i == 4) {
+        //         elem.style.strokeDasharray = `4 45 45`;
+        //         elem.style.strokeDashoffset = `-50`;
+        //         gsap.to(elem,{
+        //             duration:3,
+        //             strokeDasharray:"0 0 50 0",
+        // //           Here I want to make the circle dash offset bot sides of the circle side not only in the right side of dash offset
+        //             strokeDashoffset:"0",
+        //             ease:"power2.inOut"
+        //         })
+        //     }
+
+            gsap.to(elem,{
+                duration:2,
+                strokeDasharray:"101 100",
+    //           Here I want to make the circle dash offset bot sides of the circle side not only in the right side of dash offset
+                strokeDashoffset:"0",
+                ease:Expo.easeInOut
+            })
+
+            // gsap.to('svg',{
+            //     position:"absolute",
+            //     duration:1,
+            //     delay:4,
+            // })
+
+        })
+
+        // gsap.to(containers,{
+        //     width:"100px",
+        //     height:"100px",
+        //     // transformOrigin:"center center",
+        //     ease:"none",
+        //     duration:2,
+        //     delay:2,
+        // })
+
+
+        // const mainContainer = document.querySelector('.main-container')
+
+        // var timesRun = 0;
+        // var interval = setInterval(function(){
+        //     timesRun += 1;
+        //     if(timesRun === 60){
+        //         clearInterval(interval);
+        //     }
+            
+        //     mainContainer.addEventListener("mousemove",(e) => {
+        //         var rect = mainContainer.getBoundingClientRect()
+        //         let x = e.clientX - rect.x
+        //         let y = e.clientY - rect.y
+    
+        //         gsap.to(containers,{
+        //             x:`${x}px`,
+        //             y:`${y}px`,
+        //             transform:"translate(-50%,-50%)",
+        //             // transform:"translate(-100%,-100%)",
+        //             ease:"sine.out",
+        //             duration:0.6,
+        //         })
+    
+        //     })
+        //     //do whatever here..
+        // }, 2000); 
+
+    </script>
+
+</body>
+</html>

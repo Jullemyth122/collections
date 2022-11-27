@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js" integrity="sha512-v8B8T8l8JiiJRGomPd2k+bPS98RWBLGChFMJbK1hmHiDHYq0EjdQl20LyWeIs+MGRLTWBycJGEGAjKkEtd7w5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./planetary.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="max">
+            <div class="cursor">
+                <h1> PLANETS </h1>
+                <svg width="200" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 50 50">
+                    <circle id="c1" cx="25" cy="25" r="24" stroke="white" fill="none" transform="rotate(90 25 25)"  pathLength="100" />
+                </svg>
+            </div>
+            <div class="parent row">
+                <div class="imageSlide col-md-12">
+                    <img 
+                        class="outside" src="./images/earth.png" alt=""
+                        data-img="./images/earth.png" 
+                        data-bgColor="#83CBFF"
+                        data-text="Earth"
+                        >
+                    <img class="outside" src="./images/moon.png" alt=""
+                        data-img="./images/moon.png"
+                        data-bgColor="#A1A1A1"
+                        data-text="Moon"
+                        >
+                    <img class="outside" src="./images/mars.png" alt=""
+                        data-img="./images/mars2.png"
+                        data-bgColor="#FF4E16"
+                        data-text="Mars"
+                        >
+                    <img class="outside" src="./images/mercury.png" alt=""
+                        data-img="./images/mer2.png"
+                        data-bgColor="#97979F"
+                        data-text="Mercury"
+                        >
+                    <img class="outside" src="./images/venus.png" alt=""
+                        data-img="./images/venus.png"
+                        data-bgColor="#eed901"
+                        data-text="Venus"
+                        >
+                    <img class="outside" src="./images/jupiter.png" alt=""
+                        data-img="./images/jup2.png"
+                        data-bgColor="#A79C86"
+                        data-text="Jupiter"
+                        >
+                    <img class="outside" src="./images/ura.png" alt=""
+                        data-img="./images/ura2.png"
+                        data-bgColor="#16606c"
+                        data-text="Uranus"
+                        >
+                    <img class="outside" src="./images/saturn.png" alt=""
+                        data-img="./images/sat2.png"
+                        data-bgColor="#db9311"
+                        data-text="Saturn"
+                        >
+                    <img class="outside" src="./images/pluto.png" alt=""
+                        data-img="./images/pluto.png"
+                        data-bgColor="#a27342"
+                        data-text="Pluto"
+                        >
+                </div>
+                <div class="mainSlide col-md-12">
+                    <div class="earthTitle row row-cols-7">
+                        <div class="next col"> 
+                            <svg class="arrow" width="74" height="12" viewBox="0 0 74 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M64 0.226562L74 6.00007L64 11.7736V7.00007H1C0.447715 7.00007 0 6.55235 0 6.00007C0 5.44778 0.447715 5.00007 1 5.00007H64V0.226562Z" fill="white"/>
+                            </svg>
+                            <div class="circle">
+                                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path pathLength="100" fill-rule="evenodd" clip-rule="evenodd" d="M35 69C53.7777 69 69 53.7777 69 35C69 16.2223 53.7777 1 35 1C16.2223 1 1 16.2223 1 35C1 53.7777 16.2223 69 35 69ZM35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70Z" fill="none"/>
+                                </svg>
+                            </div>    
+                        </div>
+                        <div class="title col-auto p-md-4 p-3">
+                            <svg class="topic" xmlns="http//www.w3.org/2000/svg" viewBox="0 0 100 50">
+                                <defs>
+                                    <mask id="text">
+                                    <text x="50" y="25" text-anchor="middle"
+                                        dominant-baseline="middle"
+                                        fill="white">
+                                        EARTH
+                                    </text>
+                                    </mask>
+                                </defs>
+                                <g class="maskopen" mask="url(#text)">
+                                    <image x="0" y="0" width="200%" height="200%"
+                                    xlink:href="./images/earth.png"/>
+                                    <rect id="rectImg" x="-51%" width="100%" height="100%" fill="#83CBFF"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="prev col">
+                            <svg class="arrow" width="74" height="12" viewBox="0 0 74 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M10 11.7734L0 5.99993L10 0.226432V4.99993L73 4.99993C73.5523 4.99993 74 5.44765 74 5.99993C74 6.55222 73.5523 6.99993 73 6.99993L10 6.99993V11.7734Z" fill="white"/>
+                            </svg>    
+                            <div class="circle">
+                                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path pathLength="100" fill-rule="evenodd" clip-rule="evenodd" d="M35 69C53.7777 69 69 53.7777 69 35C69 16.2223 53.7777 1 35 1C16.2223 1 1 16.2223 1 35C1 53.7777 16.2223 69 35 69ZM35 70C54.33 70 70 54.33 70 35C70 15.67 54.33 0 35 0C15.67 0 0 15.67 0 35C0 54.33 15.67 70 35 70Z" fill="none"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="items row row-cols-md-3">
+                        <div class="second col-md-4 row row-cols-1" >
+                            <div class="title">
+                                <h1>
+                                    1
+                                </h1>
+                            </div>
+                            <div class="sub-title">
+                                Continent
+                                <svg width="176" height="17" viewBox="0 0 176 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M159.142 7.00293H0.998474V10.0029H159.142C159.844 13.7042 163.096 16.5029 167.001 16.5029C171.42 16.5029 175.001 12.9212 175.001 8.50293C175.001 4.08465 171.42 0.50293 167.001 0.50293C163.096 0.50293 159.844 3.30164 159.142 7.00293Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="sub-text row row-cols-3">
+                                <h4> Asia </h4>
+                                <h4> Africa </h4>
+                                <h4> Europe  </h4>
+                                <h4> North Ame. </h4>
+                                <h4> South Ame. </h4>
+                                <h4> Australia </h4>
+                                <h4> Antartica </h4>
+                            </div>
+                        </div>
+                        <div class="first col-md-4 row row-cols-1" >
+                            <div class="title">
+                                <h1>
+                                    2
+                                </h1>
+                            </div>
+                            <div class="sub-title">
+                                Population
+                                <svg width="176" height="17" viewBox="0 0 176 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M159.142 7.00293H0.998474V10.0029H159.142C159.844 13.7042 163.096 16.5029 167.001 16.5029C171.42 16.5029 175.001 12.9212 175.001 8.50293C175.001 4.08465 171.42 0.50293 167.001 0.50293C163.096 0.50293 159.844 3.30164 159.142 7.00293Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="sub-text row row-cols-3">
+                                <h4> 7.9 Billion People </h4>
+                            </div>
+                        </div>
+                        <div class="third col-md-4 row row-cols-1" >
+                            <div class="title">
+                                <h1>
+                                    3
+                                </h1>
+                            </div>
+                            <div class="sub-title">
+                                Technologies
+                                <svg width="176" height="17" viewBox="0 0 176 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M159.142 7.00293H0.998474V10.0029H159.142C159.844 13.7042 163.096 16.5029 167.001 16.5029C171.42 16.5029 175.001 12.9212 175.001 8.50293C175.001 4.08465 171.42 0.50293 167.001 0.50293C163.096 0.50293 159.844 3.30164 159.142 7.00293Z" fill="white"/>
+                                </svg>
+                            </div>
+                            <div class="sub-text row row-cols-3">
+                                <h4> AI </h4>
+                                <h4> ML </h4>
+                                <h4> Transportation  </h4>
+                                <h4> Industrial </h4>
+                                <h4> Communications </h4>
+                                <h4> System </h4>
+                                <h4> Engineering </h4>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const aMask = document.querySelector('.imageSlide img')
+
+        gsap.to(aMask,{
+            "--top-left-1":"50%",
+            "--top-left-2":"55%",
+            "--top-right-1":"33.5%",
+            "--bottom-right-1":"50%",
+            "--bottom-left-1":"25%",
+            ease:Expo.easeInOut,
+            duration:2,
+            delay:2,
+        })
+
+
+        var circle = document.querySelectorAll('#c1');
+
+        circle.forEach((elem,i) => {
+            var radius = elem.r.baseVal.value;
+            var circumference = radius * 2 * Math.PI;
+
+            gsap.to(elem,{
+                duration:1,
+                // strokeWidth:"0.5px",
+                strokeDasharray:"101 100",
+    //           Here I want to make the circle dash offset bot sides of the circle side not only in the right side of dash offset
+                strokeDashoffset:"0",
+                ease:Expo.easeInOut
+            })
+
+        })
+
+
+        const mouseCursor = document.querySelector('.cursor')
+
+        gsap.to(mouseCursor,{
+            width:"50px",
+            height:"50px",
+            strokeWidth:"1px",
+            background:"none",
+            "--display-title":"none",
+            // transformOrigin:"center center",
+            ease:"none",
+            duration:0.5,
+            delay:2,
+        })
+
+
+        const mainContainer = document.querySelector('.container-fluid')
+
+        var timesRun = 0;
+        var interval = setInterval(function(){
+            timesRun += 1;
+            if(timesRun === 60){
+                clearInterval(interval);
+            }
+            
+            mainContainer.addEventListener("mousemove",(e) => {
+                var rect = mainContainer.getBoundingClientRect()
+                let x = e.clientX - rect.x
+                let y = e.clientY - rect.y
+    
+                gsap.to(mouseCursor,{
+                    x:`${x}px`,
+                    y:`${y}px`,
+                    transform:"translate(-50%,-50%)",
+                    ease:"sine.out",
+                    duration:0.6,
+                })
+    
+            })
+            //do whatever here..
+        }, 2000); 
+
+
+        const nextBtn = document.querySelector('.next .circle')
+        const prevBtn = document.querySelector('.prev .circle')
+
+        function NextPrevBtn(params) {
+
+            gsap.fromTo(titleItems,{
+                y:"100%"
+            },{
+                y:"0%",
+                scale:'1',
+                ease:"Strong.inOut",
+                duration:2,
+                overwrite:true
+            })
+        }
+
+        const slidesImage = document.querySelectorAll('.imageSlide .outside')
+
+        let totalSlides = slidesImage.length;
+        let currentSlide = 0;
+        const slidesWrap = gsap.utils.wrap(0, totalSlides);
+
+        const transitionInSlide = ({ slide, direction = 1, duration = 2 }) => {
+
+            gsap.fromTo(
+                slidesImage[slide],{
+                },
+                {
+                    overwrite:true,
+                    duration
+                }
+            )
+            gsap.to(slidesImage[slide],{
+                "--top-left-1":"50%",
+                "--top-left-2":"55%",
+                "--top-right-1":"33.5%",
+                "--bottom-right-1":"50%",
+                "--bottom-left-1":"25%",
+                ease:Expo.easeInOut,
+                overwrite:true,
+                duration:2,
+                zIndex:2,
+            })
+        };
+
+        const transitionOutSlide = ({ slide, direction = 1, duration = 2 }) => {
+            gsap.to(slidesImage[slide], {
+                overwrite:true,
+                duration
+            });
+            gsap.to(slidesImage[slide],{
+                zIndex:0,
+                "--top-left-1":"0%",
+                "--top-left-2":"0%",
+                "--top-right-1":"0%",
+                "--bottom-right-1":"0%",
+                "--bottom-left-1":"0%",
+                ease:Expo.easeInOut,
+                overwrite:true,
+                duration:2,
+            })
+        };
+
+        const changingItems1 = document.querySelector('.topic image')
+        const changingItems2 = document.querySelector('#rectImg')
+        const changingItems3 = document.querySelector('.topic text')
+
+        const titleItems = document.querySelectorAll(".items .title h1")
+        const titleItemsLine = document.querySelectorAll(".items .title")
+
+        gsap.to(titleItems,{
+            y:"0%",
+            scale:'1',
+            ease:"Strong.inOut",
+            delay:3,
+            duration:1,
+        })
+
+        gsap.fromTo(titleItemsLine,{
+            "--global-color":"#83CBFF",
+            "--global-title-width":"0%",
+        },{
+            "--global-title-width":"100%",
+            ease:Expo.easeInOut,
+            duration:1,
+            delay:3,
+        })
+
+        function handleNext() {
+            const oldSlide = currentSlide;
+            currentSlide = slidesWrap(currentSlide + 1);
+            
+            changingItems1.setAttributeNS('http://www.w3.org/1999/xlink',"xlink:href",slidesImage[currentSlide].dataset.img)
+
+            changingItems2.style.fill = slidesImage[currentSlide].dataset.bgcolor
+            changingItems3.innerHTML = slidesImage[currentSlide].dataset.text
+            titleItemsLine.forEach((elem,i) => {
+                gsap.fromTo(elem,{
+                    "--global-color":slidesImage[currentSlide].dataset.bgcolor,
+                    "--global-title-width":"0%",
+                },{
+                    "--global-title-width":"100%",
+                    ease:Expo.easeInOut,
+                    duration:1,
+                })
+            })
+            transitionInSlide({ slide: currentSlide });
+            transitionOutSlide({ slide: oldSlide });
+            NextPrevBtn()
+        }
+
+        function handlePrev() {
+            const oldSlide = currentSlide;
+            currentSlide = slidesWrap(currentSlide - 1);
+
+            changingItems1.setAttributeNS('http://www.w3.org/1999/xlink',"xlink:href",slidesImage[currentSlide].dataset.img)
+            changingItems2.style.fill = slidesImage[currentSlide].dataset.bgcolor
+            changingItems3.innerHTML = slidesImage[currentSlide].dataset.text
+            titleItemsLine.forEach((elem,i) => {
+                gsap.fromTo(elem,{
+                    "--global-color":slidesImage[currentSlide].dataset.bgcolor,
+                    "--global-title-width":"0%",
+                },{
+                    "--global-title-width":"100%",
+                    ease:Expo.easeInOut,
+                    duration:1,
+                })
+            })
+            transitionInSlide({ slide: currentSlide });
+            transitionOutSlide({ slide: oldSlide });
+            NextPrevBtn()
+        }
+
+        nextBtn.addEventListener("click",handleNext)
+        prevBtn.addEventListener("click",handlePrev)
+
+
+
+    </script>
+</body>
+</html>

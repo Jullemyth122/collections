@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./next.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" integrity="sha512-VEBjfxWUOyzl0bAwh4gdLEaQyDYPvLrZql3pw1ifgb6fhEvZl9iDDehwHZ+dsMzA0Jfww8Xt7COSZuJ/slxc4Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js" integrity="sha512-v8B8T8l8JiiJRGomPd2k+bPS98RWBLGChFMJbK1hmHiDHYq0EjdQl20LyWeIs+MGRLTWBycJGEGAjKkEtd7w5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js" integrity="sha512-lZACdYsy0W98dOcn+QRNHDxFuhm62lfs8qK5+wPp7X358CN3f+ml49HpnwzTiXFzETs4++fADePDI+L2zwlm7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="slider">
+        
+        <div class="slide">
+            <img alt="bulbasaur" src="https://assets.codepen.io/271665/bulbasaur.png">
+
+        </div>
+        <div class="slide">
+            <img alt="charmander" src="https://assets.codepen.io/271665/charmander.png">
+        </div>
+
+        <div class="slide">
+            <img alt="squirtle" src="https://assets.codepen.io/271665/squirtle.png">
+        </div>
+
+    </div>
+
+    <button id="prev">Prev</button><button id="next">Next</button>
+
+    <script>
+        const slides = gsap.utils.toArray(".slide");
+        const slidesImage = gsap.utils.toArray("img");
+        const buttonPrev = document.getElementById("prev");
+        const buttonNext = document.getElementById("next");
+
+        let totalSlides = slides.length;
+        let currentSlide = 0;
+        const slidesWrap = gsap.utils.wrap(0, totalSlides);
+
+        const transitionInSlide = ({ slide, direction = 1, duration = 1 }) => {
+            gsap.fromTo(
+                slides[slide],
+                {
+                xPercent: direction > 0 ? 100 : -100
+                },
+                {
+                xPercent: 0,
+                duration
+                }
+            )
+            gsap.fromTo(
+                slidesImage[slide],
+                {
+                xPercent: direction > 0 ? -100 : 100
+                },
+                {
+                xPercent: 0,
+                duration
+                }
+            )
+        };
+
+        const transitionOutSlide = ({ slide, direction = 1, duration = 1 }) => {
+            gsap.to(slides[slide], {
+                xPercent: direction > 0 ? -100 : 100,
+                duration
+            });
+            gsap.to(slidesImage[slide], {
+                xPercent: direction > 0 ? 100 : -100,
+                duration
+            });
+        };
+
+        const handlePrev = () => {
+            const oldSlide = currentSlide;
+            currentSlide = slidesWrap(currentSlide - 1);
+            transitionInSlide({ slide: currentSlide, direction: -1 });
+            transitionOutSlide({ slide: oldSlide, direction: -1 });
+        };
+
+        const handleNext = () => {
+            const oldSlide = currentSlide;
+            currentSlide = slidesWrap(currentSlide + 1);
+            transitionInSlide({ slide: currentSlide });
+            transitionOutSlide({ slide: oldSlide });
+        };
+
+        slides.forEach((slide, index) => {
+            if (index === currentSlide) {
+                transitionInSlide({ slide: index, duration: 0 });
+                return;
+            }
+
+            transitionOutSlide({ slide: index, duration: 0 });
+        });
+
+        buttonPrev.addEventListener("click", handlePrev);
+        buttonNext.addEventListener("click", handleNext);
+    </script>
+</body>
+</html>
